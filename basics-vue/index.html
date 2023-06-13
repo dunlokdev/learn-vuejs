@@ -5,11 +5,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learn basic Vuejs</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: goldenrod;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box-container {
+      display: flex;
+      gap: 20px;
+    }
+  </style>
 </head>
 
 <body>
   <h1>Hello world from index.html</h1>
   <section id="contact">
+    <div class="box-container">
+      <div class="box" @mouseover="onLogEvent">Mouse over</div>
+      <div class="box"></div>
+      <div class="box" @dblclick="onLogEvent($event, 25, 50)">Double click</div>
+      <div class="box" @mousemove="onMouseMove">
+        Mouse move
+        {{`x = ${x}, y = ${y}`}}
+      </div>
+    </div>
   </section>
   <!-- Import CDN Vue -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
