@@ -3,22 +3,39 @@ console.log(`Hello world from main.js`);
 const app = Vue.createApp({
   data() {
     return {
-      x: 0,
-      y: 0,
+      data: [
+        {
+          fact: "Cats have 3 eyelids.",
+          length: 20,
+        },
+        {
+          fact: "Cats walk on their toes.",
+          length: 24,
+        },
+        {
+          fact: "Most cats adore sardines.",
+          length: 25,
+        },
+        {
+          fact: "Cats dislike citrus scent.",
+          length: 26,
+        },
+        {
+          fact: "Cats have supersonic hearing",
+          length: 28,
+        },
+        {
+          fact: "Female cats are polyestrous",
+          length: 28,
+        },
+        {
+          fact: "A form of AIDS exists in cats.",
+          length: 30,
+        },
+      ],
     };
   },
-  methods: {
-    onLogEvent(event, x, y) {
-      console.log(`Event is running...`);
-      this.x = x;
-      this.y = y;
-    },
-    onMouseMove(e) {
-      console.log(`Event mouse move: `, e);
-      this.x = event.offsetX;
-      this.y = event.offsetY;
-    },
-  },
+  methods: {},
 });
 
 app.mount("#contact");
