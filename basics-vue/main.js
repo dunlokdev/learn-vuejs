@@ -49,6 +49,11 @@ const app = Vue.createApp({
       item.isCart = !item.isCart;
     },
   },
+  computed: {
+    dataComputed() {
+      return this.data.filter((x) => x.length >= 25);
+    },
+  },
 });
 
 app.mount("#contact");

@@ -46,7 +46,7 @@
       <div class="box-container">
         <div
           class="cat-story"
-          v-for="item in data"
+          v-for="item in dataComputed"
           :class="{cart: item.isCart}"
           @dblclick="onToggleCart($event, item)"
         >
