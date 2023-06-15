@@ -1,31 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn basic Vuejs</title>
+    <style>
+      .box-container {
+        display: flex;
+        gap: 20px;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn basic Vuejs</title>
-  <style>
-    .box-container {
-      display: flex;
-      gap: 20px;
-    }
-  </style>
-</head>
+      .cat-story {
+        padding: 20px;
+        width: 350px;
+        height: 400px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+      }
 
-<body>
-  <h1>Hello world from index.html</h1>
-  <section id="contact">
-    <div class="box-container">
-      <div class="cat-story" v-for="fact in data">
-        <h3>{{fact.fact}}</h3>
-        <p>{{fact.length}}</p>
+      .cat-story.cart {
+        background-color: red;
+      }
+
+      .cat-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .cat-thumbnail {
+        object-fit: cover;
+        width: 100%;
+        height: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Hello world from index.html</h1>
+    <section id="contact">
+      <div class="box-container">
+        <div
+          class="cat-story"
+          v-for="item in data"
+          :class="{cart: item.isCart}"
+          @dblclick="onToggleCart($event, item)"
+        >
+          <!-- :style="{backgroundColor: item.isCart ? 'red' : '#fff'}" -->
+          <img :class="classThumbnail" v-bind:src="item.thumbnail" alt="" />
+          <h3 class="cat-title">{{item.item}}</h3>
+          <p>{{item.length}}</p>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- Import CDN Vue -->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="./main.js"></script>
-</body>
-
+    </section>
+    <!-- Import CDN Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main.js"></script>
+  </body>
 </html>
